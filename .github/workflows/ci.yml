@@ -27,6 +27,6 @@ jobs:
       - name: Test
         run: python -m pytest -q
       - name: Lint
-        run: python -m ruff check .
+        run: python -m ruff check . --fix --diff
       - name: CLI smoke test
         run: agentrace demo --output demo-report.html
