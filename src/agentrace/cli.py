@@ -59,7 +59,13 @@ def doctor() -> None:
             table.add_row(adapter.name, "[red]not found[/red]", "—")
             continue
         try:
-            proc = subprocess.run(adapter.version_command(), text=True, capture_output=True, timeout=10)
+            proc = subprocess.run(
+                adapter.version_command(),
+                check=False,
+                text=True,
+                capture_output=True,
+                timeout=10,
+            )
             version = ((proc.stdout or proc.stderr) or "installed").strip().splitlines()[0][:100]
         except Exception:  # noqa: BLE001
             version = "installed"
@@ -71,14 +77,24 @@ def doctor() -> None:
 def run_command(
     task: Annotated[str, typer.Argument(help="The exact coding task given to every agent.")],
     repo: Annotated[Path, typer.Option("--repo", "-r", help="Git repository to benchmark.")] = Path("."),
-    check: Annotated[list[str], typer.Option("--check", "-c", help="Validation command. Repeat for multiple checks.")] = [],
+    check: Annotated[
+        list[str] | None,
+        typer.Option("--check", "-c", help="Validation command. Repeat for multiple checks."),
+    ] = None,
     timeout: Annotated[int, typer.Option(help="Per-agent timeout in seconds.")] = 900,
     check_timeout: Annotated[int, typer.Option(help="Per-check timeout in seconds.")] = 300,
-    sequential: Annotated[bool, typer.Option(help="Run agents one-by-one instead of in parallel.")] = False,
-    allow_dirty: Annotated[bool, typer.Option(help="Allow a repository with uncommitted changes; race still starts from HEAD.")] = False,
+    sequential: Annotated[
+        bool,
+        typer.Option(help="Run agents one-by-one instead of in parallel."),
+    ] = False,
+    allow_dirty: Annotated[
+        bool,
+        typer.Option(help="Allow a repository with uncommitted changes; race still starts from HEAD."),
+    ] = False,
 ) -> None:
     """Run the same task against every available supported agent."""
     repo = repo.resolve()
+    checks = check or []
     try:
         ensure_repository(repo)
         if is_dirty(repo) and not allow_dirty:
@@ -101,7 +117,7 @@ def run_command(
         repo=repo,
         task=task,
         adapters=adapters,
-        checks=check,
+        checks=checks,
         timeout=timeout,
         check_timeout=check_timeout,
         parallel=not sequential,

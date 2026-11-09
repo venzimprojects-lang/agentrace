@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 
 from .models import AgentResult, CheckResult, RaceResult
 
@@ -24,7 +24,7 @@ def demo_result() -> RaceResult:
         task="Add rate limiting to a FastAPI endpoint",
         repository="demo/sample-fastapi-app",
         base_commit="demo000000000000000000000000000000000000",
-        created_at=datetime.now(timezone.utc).isoformat(),
+        created_at=datetime.now(UTC).isoformat(),
         agents=agents,
         winner="Codex",
     )

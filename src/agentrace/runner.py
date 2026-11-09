@@ -5,7 +5,7 @@ import os
 import subprocess
 import tempfile
 import time
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 
 from .adapters import AgentAdapter
@@ -45,6 +45,7 @@ def _run_check(worktree: Path, command: str, timeout: int) -> CheckResult:
         capture_output=True,
         timeout=timeout,
         env=os.environ.copy(),
+        check=False,
     )
     duration = time.perf_counter() - started
     output = (proc.stdout or "") + ("\n" + proc.stderr if proc.stderr else "")
@@ -92,6 +93,7 @@ def _run_agent(
             capture_output=True,
             timeout=timeout,
             env=os.environ.copy(),
+            check=False,
         )
         duration = time.perf_counter() - started
         files, insertions, deletions = diff_stats(worktree)
@@ -152,7 +154,7 @@ def run_race(
     parallel: bool = True,
 ) -> RaceResult:
     base = head_commit(repo)
-    created = datetime.now(timezone.utc).isoformat()
+    created = datetime.now(UTC).isoformat()
 
     with tempfile.TemporaryDirectory(prefix="agentrace-") as temp:
         root = Path(temp)
