@@ -1,0 +1,39 @@
+name: Bug report
+description: Report a reproducible AgentRace problem
+title: "[Bug]: "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: Thanks for helping improve AgentRace.
+  - type: input
+    id: version
+    attributes:
+      label: AgentRace version
+      placeholder: 0.1.0
+    validations:
+      required: true
+  - type: dropdown
+    id: os
+    attributes:
+      label: OS
+      options: [Linux, macOS, Windows, Other]
+    validations:
+      required: true
+  - type: textarea
+    id: agents
+    attributes:
+      label: AgentRace doctor output
+      description: Remove any sensitive data before pasting.
+  - type: textarea
+    id: repro
+    attributes:
+      label: Reproduction steps
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true

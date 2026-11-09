@@ -1,0 +1,15 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.venv/
+venv/
+dist/
+build/
+*.egg-info/
+.env
+.env.*
+.agentrace/
+agentrace-report.html
+agentrace-demo.html
+.DS_Store

@@ -1,0 +1,6 @@
+# Example benchmark notes for your own project.
+# v0.1 takes validation commands from repeated --check flags.
+# A future version will load reusable benchmark suites from config.
+
+# Example:
+# agentrace run "Fix bug #123" #   --check "pytest -q" #   --check "ruff check ."
