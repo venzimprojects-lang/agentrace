@@ -6,6 +6,7 @@ from pathlib import Path
 from typing import Annotated
 
 import typer
+from rich import box
 from rich.console import Console
 from rich.panel import Panel
 from rich.table import Table
@@ -21,8 +22,17 @@ app = typer.Typer(no_args_is_help=True, add_completion=False, help="Race AI codi
 console = Console()
 
 
+def _supports_unicode() -> bool:
+    encoding = (console.encoding or "").lower().replace("-", "")
+    return encoding in {"utf8", "utf_8"}
+
+
 def _show(result) -> None:
-    table = Table(title="🏁 AgentRace Results")
+    unicode_ok = _supports_unicode()
+    table = Table(
+        title="🏁 AgentRace Results" if unicode_ok else "AgentRace Results",
+        box=box.ROUNDED if unicode_ok else box.ASCII,
+    )
     table.add_column("Agent", style="bold")
     table.add_column("Score", justify="right")
     table.add_column("Checks", justify="center")
@@ -31,8 +41,8 @@ def _show(result) -> None:
     table.add_column("Diff", justify="right")
     table.add_column("Status")
     for r in sorted(result.agents, key=lambda x: x.score, reverse=True):
-        checks = f"{sum(c.passed for c in r.checks)}/{len(r.checks)}" if r.checks else "—"
-        status = "✓" if r.completed and r.exit_code == 0 else (r.error or "failed")
+        checks = f"{sum(c.passed for c in r.checks)}/{len(r.checks)}" if r.checks else "-"
+        status = ("✓" if unicode_ok else "OK") if r.completed and r.exit_code == 0 else (r.error or "failed")
         table.add_row(
             r.agent,
             f"{r.score:.1f}",
@@ -44,7 +54,14 @@ def _show(result) -> None:
         )
     console.print(table)
     if result.winner:
-        console.print(Panel.fit(f"🏆 Winner: [bold]{result.winner}[/bold]", border_style="green"))
+        winner_label = "🏆 Winner" if unicode_ok else "Winner"
+        console.print(
+            Panel.fit(
+                f"{winner_label}: [bold]{result.winner}[/bold]",
+                border_style="green",
+                box=box.ROUNDED if unicode_ok else box.ASCII,
+            )
+        )
 
 
 @app.command()
@@ -112,7 +129,7 @@ def run_command(
 
     console.print(f"[bold]Task:[/bold] {task}")
     console.print(f"[bold]Repository:[/bold] {repo}")
-    console.print("Running each agent in an isolated Git worktree…")
+    console.print("Running each agent in an isolated Git worktree...")
     result = run_race(
         repo=repo,
         task=task,
