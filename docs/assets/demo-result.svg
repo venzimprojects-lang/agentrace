@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="430" viewBox="0 0 1200 430" role="img" aria-labelledby="title desc">
+<title id="title">AgentRace demo result</title>
+<desc id="desc">Demo-only race result comparing Codex, Claude Code and Gemini CLI.</desc>
+<rect width="1200" height="430" rx="26" fill="#0b1020"/>
+<rect x="52" y="48" width="1096" height="334" rx="20" fill="#111833" stroke="#263158"/>
+<text x="82" y="92" fill="#9fb0ff" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="17" font-weight="700" letter-spacing="3">DEMO DATA — NOT A GLOBAL MODEL CLAIM</text>
+<text x="82" y="142" fill="#ffffff" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="34" font-weight="800">Add rate limiting to a FastAPI endpoint</text>
+
+<g font-family="Inter,Segoe UI,Arial,sans-serif">
+  <text x="82" y="205" fill="#ffffff" font-size="21" font-weight="700">1. Codex</text>
+  <text x="720" y="205" fill="#ffffff" font-size="21" font-weight="700">100.0</text>
+  <text x="850" y="205" fill="#aeb9e8" font-size="18">1/1 checks</text>
+  <text x="1030" y="205" fill="#aeb9e8" font-size="18">92s</text>
+  <rect x="82" y="220" width="940" height="8" rx="4" fill="#263158"/>
+  <rect x="82" y="220" width="940" height="8" rx="4" fill="#7c8cff"/>
+
+  <text x="82" y="270" fill="#ffffff" font-size="21" font-weight="700">2. Claude Code</text>
+  <text x="720" y="270" fill="#ffffff" font-size="21" font-weight="700">98.3</text>
+  <text x="850" y="270" fill="#aeb9e8" font-size="18">1/1 checks</text>
+  <text x="1030" y="270" fill="#aeb9e8" font-size="18">111s</text>
+  <rect x="82" y="285" width="940" height="8" rx="4" fill="#263158"/>
+  <rect x="82" y="285" width="924" height="8" rx="4" fill="#7c8cff"/>
+
+  <text x="82" y="335" fill="#ffffff" font-size="21" font-weight="700">3. Gemini CLI</text>
+  <text x="720" y="335" fill="#ffffff" font-size="21" font-weight="700">36.8</text>
+  <text x="850" y="335" fill="#aeb9e8" font-size="18">0/1 checks</text>
+  <text x="1030" y="335" fill="#aeb9e8" font-size="18">136s</text>
+  <rect x="82" y="350" width="940" height="8" rx="4" fill="#263158"/>
+  <rect x="82" y="350" width="346" height="8" rx="4" fill="#7c8cff"/>
+</g>
+</svg>

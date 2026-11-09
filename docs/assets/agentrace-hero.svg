@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="500" viewBox="0 0 1200 500" role="img" aria-labelledby="title desc">
+<title id="title">AgentRace</title>
+<desc id="desc">Race Claude Code, Codex and Gemini CLI on your own codebase.</desc>
+<defs>
+  <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+    <stop offset="0" stop-color="#0b1020"/>
+    <stop offset="1" stop-color="#121a36"/>
+  </linearGradient>
+  <linearGradient id="line" x1="0" x2="1">
+    <stop offset="0" stop-color="#7c8cff"/>
+    <stop offset="1" stop-color="#9be7ff"/>
+  </linearGradient>
+</defs>
+<rect width="1200" height="500" rx="28" fill="url(#bg)"/>
+<circle cx="1030" cy="80" r="170" fill="#6272ff" opacity=".09"/>
+<circle cx="180" cy="470" r="220" fill="#3dd9eb" opacity=".06"/>
+<text x="70" y="105" fill="#9fb0ff" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="20" font-weight="700" letter-spacing="4">OPEN-SOURCE AI CODING BENCHMARK</text>
+<text x="70" y="185" fill="#ffffff" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="68" font-weight="800">🏁 AgentRace</text>
+<text x="70" y="238" fill="#c7d2fe" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="28">Same repo. Same task. Same checks.</text>
+<text x="70" y="278" fill="#c7d2fe" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="28">Compare Claude Code, Codex and Gemini CLI.</text>
+
+<g transform="translate(70,335)">
+  <rect width="290" height="82" rx="16" fill="#141d3c" stroke="#34406d"/>
+  <text x="24" y="34" fill="#ffffff" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="20" font-weight="700">Claude Code</text>
+  <rect x="24" y="52" width="238" height="6" rx="3" fill="#263158"/>
+  <rect x="24" y="52" width="194" height="6" rx="3" fill="url(#line)"/>
+</g>
+<g transform="translate(400,335)">
+  <rect width="290" height="82" rx="16" fill="#141d3c" stroke="#34406d"/>
+  <text x="24" y="34" fill="#ffffff" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="20" font-weight="700">Codex</text>
+  <rect x="24" y="52" width="238" height="6" rx="3" fill="#263158"/>
+  <rect x="24" y="52" width="218" height="6" rx="3" fill="url(#line)"/>
+</g>
+<g transform="translate(730,335)">
+  <rect width="290" height="82" rx="16" fill="#141d3c" stroke="#34406d"/>
+  <text x="24" y="34" fill="#ffffff" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="20" font-weight="700">Gemini CLI</text>
+  <rect x="24" y="52" width="238" height="6" rx="3" fill="#263158"/>
+  <rect x="24" y="52" width="160" height="6" rx="3" fill="url(#line)"/>
+</g>
+<text x="1065" y="390" fill="#7280b4" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="14">local-first</text>
+<text x="1065" y="414" fill="#7280b4" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="14">MIT licensed</text>
+</svg>
