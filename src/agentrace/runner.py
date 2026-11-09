@@ -19,7 +19,6 @@ from .gitops import (
 from .models import AgentResult, CheckResult, RaceResult
 from .scoring import pick_winner, score_results
 
-
 PROMPT_TEMPLATE = """You are competing in AgentRace, a coding-agent benchmark.
 
 Task:
