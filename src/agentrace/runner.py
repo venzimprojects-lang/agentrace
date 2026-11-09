@@ -9,7 +9,13 @@ from datetime import UTC, datetime
 from pathlib import Path
 
 from .adapters import AgentAdapter
-from .gitops import add_worktree, diff_stats, head_commit, remove_worktree, slugify
+from .gitops import (
+    add_worktree,
+    diff_stats,
+    head_commit,
+    remove_worktree,
+    slugify,
+)
 from .models import AgentResult, CheckResult, RaceResult
 from .scoring import pick_winner, score_results
 
